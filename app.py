@@ -33,3 +33,27 @@ def get_response_from_llm(messages):
     )
     return response.choices[0].message.content
 
+# Streamlit App Interface
+st.title("🌆 Dubai Trip Assistant")
+
+# Load or Initialize Chat History
+if "messages" not in st.session_state:
+    st.session_state.messages = INITIAL_MESSAGE.copy()
+
+#  Display Chat Messages
+for message in st.session_state.messages:
+    if message["role"] != "system":
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
+#  User Input Field
+user_message = st.chat_input("Enter your message...")
+
+#  Handle User Message
+if user_message:
+    # Add user message to history
+    st.session_state.messages.append({"role": "user", "content": user_message})
+
+    with st.chat_message("user"):
+        st.markdown(user_message)
+
