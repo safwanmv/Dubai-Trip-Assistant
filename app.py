@@ -57,3 +57,12 @@ if user_message:
     with st.chat_message("user"):
         st.markdown(user_message)
 
+    # Show assistant typing...
+    with st.chat_message("assistant"):
+        with st.spinner("Dubai Genie is typing..."):
+            response = get_response_from_llm(st.session_state.messages)
+            st.markdown(response)
+
+    # Add assistant response to history
+    st.session_state.messages.append({"role": "assistant", "content": response})
+
