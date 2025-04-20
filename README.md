@@ -39,7 +39,7 @@ Built with **Python**, **Streamlit**, and **OpenAI API**, it runs entirely in yo
 ### ✅ 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/dubai-trip-assistant.git
+git clone https://github.com/safwanmv/dubai-trip-assistant.git
 cd dubai-trip-assistant
 ```
 
