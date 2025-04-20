@@ -25,3 +25,11 @@ INITIAL_MESSAGE = [
 ]
 
 
+# Function to Get Response from OpenAI
+def get_response_from_llm(messages):
+    response = openai.chat.completions.create(
+        model="gpt-4.1-mini",  # You can choose the model version you need
+        messages=messages
+    )
+    return response.choices[0].message.content
+
